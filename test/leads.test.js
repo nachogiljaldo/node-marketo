@@ -110,4 +110,16 @@ describe('Leads', function () {
         .catch(done);
     });
   });
+
+  describe('#associateLead', function () {
+    it('finds a lead by id only', function (done) {
+      marketo.lead
+        .associateLead(578705, 'id:356-YFG-389&token:_mch-mydomain.com-dce599ec86f1c3773ce075014267c852')
+        .then(function (response) {
+          assert.equal(response.result.length, 0);
+          done();
+        })
+        .catch(done);
+    });
+  });
 });
